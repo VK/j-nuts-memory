@@ -1,4 +1,7 @@
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/j-nuts-memory/'
+    : '/',
   pages: {
     index: {
       // entry for the page
@@ -8,7 +11,7 @@ module.exports = {
       // output as dist/index.html
       filename: 'index.html',
       // template title <title><%= htmlWebpackPlugin.options.title %></title>
-      title: 'Peek-a-Vue by BenCodeZen'
+      title: 'J🌰 Memory'
     }
   },
   pwa: {

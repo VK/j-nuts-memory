@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7622779dad8bb5563784",
+    "revision": "431e28964a2d06ec9ada",
     "url": "/j-nuts-memory/css/index.faab51f6.css"
   },
   {
@@ -32,11 +32,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/j-nuts-memory/images/vue-logo.svg"
   },
   {
-    "revision": "588be924fabd0edc229c18a886dec000",
+    "revision": "44877889752a3998eb6b53ca59a9b14b",
     "url": "/j-nuts-memory/img/icon.png"
   },
   {
-    "revision": "40887eb1324fa7f009c57599a6bc6a25",
+    "revision": "0a877cdc26b96a041bc0fa9ae6c256bf",
     "url": "/j-nuts-memory/index.html"
   },
   {
@@ -44,8 +44,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/j-nuts-memory/js/chunk-vendors.31ac6da3.js"
   },
   {
-    "revision": "7622779dad8bb5563784",
-    "url": "/j-nuts-memory/js/index.6c80c5a6.js"
+    "revision": "431e28964a2d06ec9ada",
+    "url": "/j-nuts-memory/js/index.3dfaf73d.js"
   },
   {
     "revision": "85d92658f647eb97ef021caeb07c43b1",

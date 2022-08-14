@@ -33,7 +33,7 @@ export default {
       v-for="card in cardList"
       :key="`${card.value}-${card.variant}`"
       :matched="card.matched"
-      :value="card.value"
+      :value="card"
       :visible="card.visible"
       :position="card.position"
       @select-card="selectCard"

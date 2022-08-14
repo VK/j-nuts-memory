@@ -1,13 +1,14 @@
 <script>
 import { ref, watch } from 'vue'
-import createDeck from './features/createDeck'
+import {cardDeck, createDeck} from './features/createDeck'
 import createGame from './features/createGame'
 import { launchConfetti } from './utilities/confetti'
 import AppFooter from './components/AppFooter'
 import AppHero from './components/AppHero'
 import GameBoard from './components/GameBoard'
 import NewGameButton from './components/NewGameButton'
-import halloweenDeck from './data/halloweenDeck.json'
+//import halloweenDeck from './data/halloweenDeck.json'
+import nutsDeck from './data/nuts.json'
 
 export default {
   name: 'App',
@@ -18,7 +19,9 @@ export default {
     NewGameButton
   },
   setup() {
-    const { cardList } = createDeck(halloweenDeck)
+    cardDeck.value = nutsDeck;
+    const { cardList } = createDeck()
+
     const {
       newPlayer,
       startGame,
@@ -120,8 +123,7 @@ body {
 }
 
 html {
-  background-image: url('/images/page-bg.png');
-  background-color: #00070c;
+  background-color: #000;
 }
 
 h1 {
@@ -176,18 +178,7 @@ a:hover {
   }
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
 .shuffle-card-move {
-  transition: transform 0.8s ease-in;
+  transition: transform 0.5s ease-in;
 }
 </style>

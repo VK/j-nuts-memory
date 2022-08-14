@@ -1,13 +1,23 @@
 import _ from 'lodash'
 import { computed, ref } from 'vue'
+import { createDeck } from './createDeck'
+
 
 export default function createGame(deck) {
   const newPlayer = ref(true)
 
   const startGame = () => {
-    newPlayer.value = false
+    
+    if (newPlayer.value) {
+      restartGame()
+      console.log("A")
+    } else {
+      console.log(deck);
+      createDeck();
+      console.log("B")
+    }
 
-    restartGame()
+    newPlayer.value = !newPlayer.value;
   }
 
   const restartGame = () => {

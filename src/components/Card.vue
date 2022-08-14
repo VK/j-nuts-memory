@@ -12,7 +12,6 @@ export default {
       required: true
     },
     value: {
-      type: String,
       required: true
     },
     visible: {
@@ -25,12 +24,13 @@ export default {
       if (props.visible) {
         return 'is-flipped'
       }
+      return ''
     })
 
     const selectCard = () => {
       context.emit('select-card', {
         position: props.position,
-        faceValue: props.value
+        faceValue: props.value.value
       })
     }
 
@@ -45,12 +45,12 @@ export default {
 <template>
   <div class="card" :class="flippedStyles" @click="selectCard">
     <div class="card-face is-front">
-      <img
+      <img v-if="value.variant == 2"
         class="card-image"
-        :srcset="`/images/${value}@2x.png 2x, /images/${value}.png 1x`"
-        :src="`/images/${value}.png`"
-        :alt="value"
+        :src="value.img"
+        :alt="value.value"
       />
+      <div v-if="value.variant == 1">{{value.value}}</div>
       <img v-if="matched" src="/images/checkmark.svg" class="icon-checkmark" />
     </div>
     <div class="card-face is-back"></div>
@@ -62,6 +62,7 @@ export default {
   position: relative;
   transition: 0.5s transform ease-in;
   transform-style: preserve-3d;
+  
 }
 
 .card.is-flipped {
@@ -77,17 +78,20 @@ export default {
   align-items: center;
   justify-content: center;
   backface-visibility: hidden;
+  box-shadow: 1px 2px 6px  rgb(165, 233, 165);
 }
 
 .card-face.is-front {
-  background-image: url('/images/card-bg.png');
-  color: white;
+  background: #fff;
+  font-weight: 700;
+  color: #000;
   transform: rotateY(180deg);
 }
 
 .card-face.is-back {
-  background-image: url('/images/card-bg-empty.png');
-  color: white;
+  /* background-image: url('/images/card-bg.png'); */
+  background: rgb(69, 151, 69);;
+  color: #000
 }
 
 .card-image {

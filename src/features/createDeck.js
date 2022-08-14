@@ -1,11 +1,33 @@
 import { ref } from 'vue'
 
-const cardList = ref([])
+var cardList = ref([])
 
-const initDeck = deckData => {
-  deckData.forEach(item => {
+
+/**
+ * Shuffles array in place. ES6 version
+ * @param {Array} a items An array containing the items.
+ */
+ function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+
+const initDeck = () => {
+
+  let indices = Array.from(Array(cardDeck.value.data.length).keys());
+  indices = shuffle(indices);
+
+
+  indices.slice(0, 8).forEach(idx => {
+    let item = cardDeck.value.data[idx];
+
     cardList.value.push({
-      value: item,
+      value: item.name,
+      img: item.img,
       variant: 1,
       visible: false,
       position: null,
@@ -13,7 +35,8 @@ const initDeck = deckData => {
     })
 
     cardList.value.push({
-      value: item,
+      value: item.name,
+      img: item.img,
       variant: 2,
       visible: true,
       position: null,
@@ -31,11 +54,14 @@ const updateCardPosition = () => {
   })
 }
 
-export default function createDeck(deckData) {
-  initDeck(deckData)
+export function createDeck() {
+  cardList.value = [];
+  initDeck()
   updateCardPosition()
 
   return {
     cardList
   }
 }
+
+export var cardDeck = ref([])

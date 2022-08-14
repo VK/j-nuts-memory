@@ -146,7 +146,10 @@ a:hover {
   text-align: center;
   color: #2c3e50;
   color: #fff;
-  padding: 60px 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .status {
@@ -157,10 +160,10 @@ a:hover {
 
 .game-board {
   display: grid;
-  grid-template-columns: repeat(4, 60px);
-  grid-template-rows: repeat(4, 60px);
-  grid-column-gap: 12px;
-  grid-row-gap: 12px;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(4, 80px);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
   justify-content: center;
 }
 
@@ -168,6 +171,8 @@ a:hover {
   .game-board {
     grid-template-columns: repeat(4, 90px);
     grid-template-rows: repeat(4, 90px);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
   }
 }
 
@@ -175,6 +180,8 @@ a:hover {
   .game-board {
     grid-template-columns: repeat(4, 120px);
     grid-template-rows: repeat(4, 120px);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;    
   }
 }
 

@@ -51,7 +51,7 @@ export default {
         :alt="value.value"
       />
       <div v-if="value.variant == 1">{{value.value}}</div>
-      <img v-if="matched" src="/images/checkmark.svg" class="icon-checkmark" />
+      <img v-if="matched" src="images/checkmark.svg" class="icon-checkmark" />
     </div>
     <div class="card-face is-back"></div>
   </div>
@@ -89,7 +89,7 @@ export default {
 }
 
 .card-face.is-back {
-  /* background-image: url('/images/card-bg.png'); */
+  /* background-image: url('images/card-bg.png'); */
   background: rgb(69, 151, 69);;
   color: #000
 }

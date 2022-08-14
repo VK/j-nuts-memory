@@ -2,6 +2,7 @@ module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
     ? '/j-nuts-memory/'
     : '/',
+  productionSourceMap: false,    
   pages: {
     index: {
       // entry for the page
@@ -26,7 +27,8 @@ module.exports = {
     workboxOptions: {
       // swSrc is required in InjectManifest mode.
       swSrc: 'src/registerServiceWorker.js',
-    }
+    },
+  
 
 
   }

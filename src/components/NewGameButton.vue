@@ -23,18 +23,18 @@ export default {
     <div :class="$style['button-icon']">
       <img
         :class="$style['icon-play']"
-        src="/images/play.svg"
+        src="images/play.svg"
         alt="Play Icon"
       /><img
         :class="$style['icon-ghost']"
-        src="/images/cute-ghost.svg"
-        alt="Cute Ghost"
+        src="images/play.svg"
+        alt="Play Icon"
       />
     </div>
     Start Game
   </button>
   <button v-else @click="startNewGame" :class="$style.button">
-    <img src="/images/restart.svg" alt="Restart Icon" />Restart Game
+    <img src="images/restart.svg" alt="Restart Icon" />Restart Game
   </button>
 </template>
 

@@ -62,7 +62,7 @@ export default {
     }
 
     watch(matchesFound, currentValue => {
-      if (currentValue === 8) {
+      if (currentValue === 8 && !newPlayer.value) {
         launchConfetti()
       }
     })
@@ -86,7 +86,7 @@ export default {
               cardList.value[cardTwo.position].visible = false
               // Allow user to flip a new card
               userCanFlipCard.value = true
-            }, 2000)
+            }, 1000)
           }
 
           userSelection.value.length = 0

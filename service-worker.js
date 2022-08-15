@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/j-nuts-memory/precache-manifest.7625072a188fd13a4c28486c18581e52.js"
+  "/j-nuts-memory/precache-manifest.4cdebb8190144d116c84bac1df05e935.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "peek-a-vue"});

@@ -19,7 +19,20 @@ export default {
     NewGameButton,
   },
   setup() {
-    cardDeck.value = nutsDeck;
+    if (localStorage.getItem("localDeck") === null) {
+      cardDeck.value = nutsDeck;
+    } else {
+      try {
+        cardDeck.value = JSON.parse(localStorage.getItem("localDeck"));
+      } catch {
+        cardDeck.value = nutsDeck;
+      }
+    }
+
+
+
+    // localStorage.setItem("localDeck", JSON.stringify(nutsDeck));
+
     const { cardList } = createDeck();
 
     const { newPlayer, startGame, restartGame, matchesFound, status } =
@@ -69,7 +82,6 @@ export default {
           // cardList.value[cardOne.position].matched = true;
           userCanFlipCard.value = true;
           userSelection.value.length = 0;
-
         } else if (currentValue.length === 2) {
           const cardOne = currentValue[0];
           const cardTwo = currentValue[1];

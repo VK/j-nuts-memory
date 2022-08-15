@@ -1,3 +1,14 @@
 <template>
-  <footer>Based on peek-a-vue by <a href="https://www.bencodezen.io">bencodezen</a>. Adapted by VK</footer>
+  <footer>Based on <a href="https://github.com/bencodezen/peek-a-vue">peek-a-vue</a>. <br>
+  Adapted by VK.</footer>
 </template>
+
+<style scoped>
+footer {
+  color: #555;
+}
+
+footer a {
+  color: #555;
+}
+</style>

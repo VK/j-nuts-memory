@@ -10,11 +10,8 @@ export default function createGame(deck) {
     
     if (newPlayer.value) {
       restartGame()
-      console.log("A")
     } else {
-      console.log(deck);
       createDeck();
-      console.log("B")
     }
 
     newPlayer.value = !newPlayer.value;

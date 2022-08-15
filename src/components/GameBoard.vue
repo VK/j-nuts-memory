@@ -31,7 +31,7 @@ export default {
   <transition-group tag="section" class="game-board" name="shuffle-card">
     <Card
       v-for="card in cardList"
-      :key="`${card.value}-${card.variant}`"
+      :key="`${card.idx}-${card.variant}`"
       :matched="card.matched"
       :value="card"
       :visible="card.visible"

@@ -54,6 +54,7 @@ export default {
       <img v-if="matched" src="images/checkmark.svg" class="icon-checkmark" />
     </div>
     <div class="card-face is-back"></div>
+    <div style="color: #fff">{{position}}</div>
   </div>
 </template>
 
@@ -86,6 +87,11 @@ export default {
   font-weight: 700;
   color: #000;
   transform: rotateY(180deg);
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */    
+  
 }
 
 .card-face.is-back {

@@ -5,11 +5,15 @@ import { createDeck } from './createDeck'
 
 export default function createGame(deck) {
   const newPlayer = ref(true)
+  let tries = ref(0);
+  let starttime = ref(Date.now());
 
   const startGame = () => {
     
     if (newPlayer.value) {
       restartGame()
+      tries.value = 0;
+      starttime.value = Date.now();
     } else {
       createDeck();
     }
@@ -49,6 +53,8 @@ export default function createGame(deck) {
     newPlayer,
     restartGame,
     startGame,
-    status
+    status,
+    starttime,
+    tries
   }
 }

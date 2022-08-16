@@ -31,12 +31,13 @@ export default {
 
 
 
+
+
     // localStorage.setItem("localDeck", JSON.stringify(nutsDeck));
 
     const { cardList } = createDeck();
 
-    const { newPlayer, startGame, restartGame, matchesFound, status } =
-      createGame(cardList);
+    const { newPlayer, startGame, restartGame, matchesFound, status, starttime, tries } = createGame(cardList);
     const userSelection = ref([]);
     const userCanFlipCard = ref(true);
 
@@ -102,6 +103,7 @@ export default {
           }
 
           userSelection.value.length = 0;
+          tries.value = tries.value + 1;
         }
       },
       { deep: true }
@@ -114,6 +116,8 @@ export default {
       status,
       startNewGame,
       newPlayer,
+      starttime,
+      tries
     };
   },
 };
@@ -122,7 +126,7 @@ export default {
 <template>
   <AppHero />
   <NewGameButton :newPlayer="newPlayer" @start-new-game="startNewGame" />
-  <GameBoard :cardList="cardList" :status="status" @flip-card="flipCard" />
+  <GameBoard :cardList="cardList" :status="status" @flip-card="flipCard" :starttime="starttime" :tries="tries" :newPlayer="newPlayer" />
   <AppFooter />
 </template>
 

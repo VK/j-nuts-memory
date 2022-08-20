@@ -20,6 +20,7 @@ export default {
 <style>
 
 .mainheader {
+  padding-top: 1rem;
   margin-bottom: 0;
 }
 .headerdivider {

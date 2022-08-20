@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
-import Game from './views/Game'
+import app from './App'
 import './registerServiceWorker'
+import router from './router'
 
 
 async function loadDeck(url)
@@ -34,4 +35,4 @@ if (urlParams.get('loadDeck') !== null) {
 }
 
 
-createApp(Game).mount('#app')
+createApp(app).use(router).mount('#app')

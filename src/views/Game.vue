@@ -13,7 +13,7 @@ export default {
   components: {
     AppHeader,
     GameBoard,
-    NewGameButton
+    NewGameButton,
   },
   setup() {
     if (localStorage.getItem("localDeck") === null) {
@@ -26,16 +26,21 @@ export default {
       }
     }
 
-
     let subtitle = cardDeck.value["title"];
-
-
 
     // localStorage.setItem("localDeck", JSON.stringify(nutsDeck));
 
     const { cardList } = createDeck();
 
-    const { newPlayer, startGame, restartGame, matchesFound, status, starttime, tries } = createGame(cardList);
+    const {
+      newPlayer,
+      startGame,
+      restartGame,
+      matchesFound,
+      status,
+      starttime,
+      tries,
+    } = createGame(cardList);
     const userSelection = ref([]);
     const userCanFlipCard = ref(true);
 
@@ -116,7 +121,7 @@ export default {
       newPlayer,
       starttime,
       tries,
-      subtitle
+      subtitle,
     };
   },
 };
@@ -124,9 +129,19 @@ export default {
 
 <template>
   <AppHeader :subtitle="subtitle" />
-  <NewGameButton :newPlayer="newPlayer" @start-new-game="startNewGame" />
-  <GameBoard :cardList="cardList" :status="status" @flip-card="flipCard" :starttime="starttime" :tries="tries" :newPlayer="newPlayer" />
-  <AppFooter />
+
+  <div class="appcenter">
+    <NewGameButton :newPlayer="newPlayer" @start-new-game="startNewGame" />
+    <GameBoard
+      :cardList="cardList"
+      :status="status"
+      @flip-card="flipCard"
+      :starttime="starttime"
+      :tries="tries"
+      :newPlayer="newPlayer"
+    />
+    <AppFooter />
+  </div>
 </template>
 
 <style>
@@ -152,19 +167,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  color: #fff;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .status {

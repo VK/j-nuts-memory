@@ -8,8 +8,19 @@
 </template>
 
 <style>
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+html {
+  background-color: #000;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Titillium Web", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -26,13 +37,37 @@
 }
 
 #bottom-nav a {
+  font-size: 22px;
   display: inline-block;
   color: white;
   text-align: center;
-  padding: 16px 16px;
+  padding: 8px 16px;
+  height: 100%;
   text-decoration: none;
-  width: 80px;
+  width: 100px;
 }
+
+@media only screen and (max-width: 375px) {
+  #bottom-nav a {
+    font-size: 15px;
+    padding: 10px 2px;
+    width: 80px;
+    
+  }
+  #bottom-nav {
+    height: 24px;
+  }  
+}
+
+@media only screen and (max-width: 400px) {
+  #bottom-nav a {
+    font-size: 18px;
+    padding: 11px 2px;
+    width:90px;
+  }
+  
+}
+
 
 .router-link-active {
   background: #28a745;
@@ -64,7 +99,7 @@ nav a.router-link-exact-active {
 /* Smartphones (landscape) ----------- */
 @media only screen and (max-height: 650px) {
   #bottom-nav {
-    height: 30px;
+    height: 24px;
   }
 
   nav {
@@ -81,10 +116,12 @@ nav a.router-link-exact-active {
 
   .subheader {
     position: relative;
-    top:-40px;
+    top: -40px;
     /* visibility: collapse; */
   }
 
-
+  .card {
+    width: 70px;
+  }
 }
 </style>

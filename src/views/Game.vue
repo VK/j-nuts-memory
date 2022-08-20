@@ -16,13 +16,13 @@ export default {
     NewGameButton,
   },
   setup() {
-    let active_level = {id: null}
+    let active_level = { id: null };
     if (localStorage.getItem("levels") === null) {
       cardDeck.value = nutsDeck;
     } else {
       try {
         let levels = JSON.parse(localStorage.getItem("levels"));
-        active_level = levels.filter(el => el.active)[0];
+        active_level = levels.filter((el) => el.active)[0];
         console.log(active_level);
         cardDeck.value = JSON.parse(localStorage.getItem(active_level.id));
       } catch {
@@ -45,7 +45,7 @@ export default {
       status,
       starttime,
       tries,
-      updateHighscore
+      updateHighscore,
     } = createGame(cardList, active_level);
     const userSelection = ref([]);
     const userCanFlipCard = ref(true);
@@ -128,11 +128,9 @@ export default {
       newPlayer,
       starttime,
       tries,
-      subtitle
+      subtitle,
     };
   },
-
-
 };
 </script>
 
@@ -154,17 +152,6 @@ export default {
 </template>
 
 <style>
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-html {
-  background-color: #000;
-}
-
 h1 {
   margin-top: 0;
 }
@@ -181,16 +168,25 @@ a:hover {
 .status {
   font-family: "Titillium Web", sans-serif;
   font-size: 18px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .game-board {
   display: grid;
-  grid-template-columns: repeat(4, 80px);
-  grid-template-rows: repeat(4, 80px);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-template-columns: repeat(4, 65px);
+  grid-template-rows: repeat(4, 65px);
+  grid-column-gap: 7px;
+  grid-row-gap: 7px;
   justify-content: center;
+}
+
+@media screen and (min-width: 390px) {
+  .game-board {
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: repeat(4, 80px);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
 }
 
 @media screen and (min-width: 500px) {
@@ -199,6 +195,13 @@ a:hover {
     grid-template-rows: repeat(4, 90px);
     grid-column-gap: 15px;
     grid-row-gap: 15px;
+  }
+
+  .status {
+    font-size: 22px;
+  }
+    .card {
+    font-size: 22px;
   }
 }
 

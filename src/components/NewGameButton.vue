@@ -92,4 +92,13 @@ export default {
   width: 24px;
   height: 24px;
 }
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (max-height: 650px) {
+.button {
+   padding: 4px 8px 5px;
+   
+}
+
+}
 </style>

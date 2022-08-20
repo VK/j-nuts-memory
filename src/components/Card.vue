@@ -74,12 +74,12 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
-  border-radius: 10px;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   backface-visibility: hidden;
-  box-shadow: 1px 2px 6px  rgb(165, 233, 165);
+  box-shadow: 2px 2px 6px  rgb(221, 247, 221);
 }
 
 .card-face.is-front {

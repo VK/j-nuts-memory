@@ -175,8 +175,8 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(4, 65px);
   grid-template-rows: repeat(4, 65px);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
   justify-content: center;
 }
 

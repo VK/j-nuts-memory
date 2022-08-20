@@ -178,8 +178,7 @@ nav a.router-link-exact-active {
 
   .subheader {
     position: relative;
-    top: -40px;
-    /* visibility: collapse; */
+    top: -60px;
   }
 
 

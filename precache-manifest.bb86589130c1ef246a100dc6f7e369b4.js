@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bea3e0e23b9e0566854d",
-    "url": "/j-nuts-memory/css/index.d0884130.css"
+    "revision": "136772556d98089f9340",
+    "url": "/j-nuts-memory/css/index.5f301cd0.css"
   },
   {
     "revision": "7b6ddcaf5565990505b475e935ca5c38",
@@ -10,6 +10,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "d6f3366c3b9cca5c926db886792f38da",
     "url": "/j-nuts-memory/images/cute-ghost.svg"
+  },
+  {
+    "revision": "c32e09280b0d4c4f55e6aabc3ef3c8de",
+    "url": "/j-nuts-memory/images/delete.svg"
   },
   {
     "revision": "1bc6a9eb3f93674e1076382a73841a3f",
@@ -36,16 +40,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/j-nuts-memory/img/icon.png"
   },
   {
-    "revision": "8e90c97697c037a4794ee6b39eb87448",
+    "revision": "a398855032cc82b33dda5d811b5d58a4",
     "url": "/j-nuts-memory/index.html"
   },
   {
-    "revision": "f36a2e7fa34b37bc3827",
-    "url": "/j-nuts-memory/js/chunk-vendors.9e8f31ab.js"
+    "revision": "f6847dddbe5d8058463f",
+    "url": "/j-nuts-memory/js/chunk-vendors.85f3daf1.js"
   },
   {
-    "revision": "bea3e0e23b9e0566854d",
-    "url": "/j-nuts-memory/js/index.97497811.js"
+    "revision": "136772556d98089f9340",
+    "url": "/j-nuts-memory/js/index.923907fe.js"
   },
   {
     "revision": "85d92658f647eb97ef021caeb07c43b1",

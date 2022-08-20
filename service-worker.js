@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/j-nuts-memory/precache-manifest.895aed315cf5849a6227eb409fcd8cb8.js"
+  "/j-nuts-memory/precache-manifest.e77368acda3a0bd2affed73d203eccfe.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "peek-a-vue"});
+workbox.core.setCacheNameDetails({prefix: "j-nuts-memory"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {

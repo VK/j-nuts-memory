@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import Game from './views/Game'
 import './registerServiceWorker'
 
 
@@ -34,4 +34,4 @@ if (urlParams.get('loadDeck') !== null) {
 }
 
 
-createApp(App).mount('#app')
+createApp(Game).mount('#app')

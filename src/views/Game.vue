@@ -1,16 +1,15 @@
 <script>
 import { ref, watch } from "vue";
-import { cardDeck, createDeck } from "./features/createDeck";
-import createGame from "./features/createGame";
-import { launchConfetti } from "./utilities/confetti";
-import AppHeader from "./components/AppHeader";
-import GameBoard from "./components/GameBoard";
-import NewGameButton from "./components/NewGameButton";
-//import halloweenDeck from './data/halloweenDeck.json'
-import nutsDeck from "./data/nuts.json";
+import { cardDeck, createDeck } from "./../features/createDeck";
+import createGame from "./../features/createGame";
+import { launchConfetti } from "./../utilities/confetti";
+import AppHeader from "./../components/AppHeader";
+import GameBoard from "./../components/GameBoard";
+import NewGameButton from "./../components/NewGameButton";
+import nutsDeck from "./../data/nuts.json";
 
 export default {
-  name: "App",
+  name: "Game",
   components: {
     AppHeader,
     GameBoard,

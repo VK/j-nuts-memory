@@ -1,35 +1,40 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, no-undef */
 
-import { register } from 'register-service-worker'
+import { register } from 'register-service-worker';
 
 if (process.env.NODE_ENV === 'production') {
   register(`${process.env.BASE_URL}service-worker.js`, {
     ready() {
       console.log(
         'App is being served from cache by a service worker.\n' +
-        'For more details, visit https://goo.gl/AFskqB'
-      )
+          'For more details, visit https://goo.gl/AFskqB'
+      );
     },
-    registered() {
-      console.log('Service worker has been registered.')
+    registered(reg) {
+      console.log('Service worker has been registered.');
+      setInterval(() => {
+        reg.update();
+      }, 1000 * 60 * 60); // e.g. hourly checks
     },
     cached() {
-      console.log('Content has been cached for offline use.')
+      console.log('Content has been cached for offline use.');
     },
     updatefound() {
-      console.log('New content is downloading.')
+      console.log('New content is downloading.');
     },
-    updated() {
+    updated(reg) {
       console.log('New content is available; please refresh.');
-      window.location.reload(true);
+      document.dispatchEvent(
+        new CustomEvent('swUpdated', { detail: reg.waiting })
+      );
     },
     offline() {
-      console.log('No internet connection found. App is running in offline mode.')
+      console.log(
+        'No internet connection found. App is running in offline mode.'
+      );
     },
     error(error) {
-      console.error('Error during service worker registration:', error)
+      console.error('Error during service worker registration:', error);
     }
-  })
-
-  self.addEventListener('fetch', () => console.log("fetch"));
+  });
 }

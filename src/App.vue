@@ -23,7 +23,6 @@
   transform: translate(-50%, -50%);
   max-height: 80vh;
   overflow-y: auto;
-
 }
 
 #bottom-nav a {
@@ -32,15 +31,15 @@
   text-align: center;
   padding: 16px 16px;
   text-decoration: none;
-  width:80px;
+  width: 80px;
 }
 
 .router-link-active {
   background: #28a745;
-} 
+}
 
 #bottom-nav {
-  background: rgb(45, 100, 45);;
+  background: rgb(45, 100, 45);
   height: 50px;
   position: fixed;
   padding: 0;
@@ -60,5 +59,32 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (max-height: 650px) {
+  #bottom-nav {
+    height: 30px;
+  }
+
+  nav {
+    padding: 0px;
+  }
+
+  #bottom-nav a {
+    padding: 5px 5px;
+  }
+
+  .mainheader {
+    visibility: collapse;
+  }
+
+  .subheader {
+    position: relative;
+    top:-40px;
+    /* visibility: collapse; */
+  }
+
+
 }
 </style>

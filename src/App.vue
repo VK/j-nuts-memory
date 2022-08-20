@@ -3,8 +3,7 @@ import { ref, watch } from "vue";
 import { cardDeck, createDeck } from "./features/createDeck";
 import createGame from "./features/createGame";
 import { launchConfetti } from "./utilities/confetti";
-import AppFooter from "./components/AppFooter";
-import AppHero from "./components/AppHero";
+import AppHeader from "./components/AppHeader";
 import GameBoard from "./components/GameBoard";
 import NewGameButton from "./components/NewGameButton";
 //import halloweenDeck from './data/halloweenDeck.json'
@@ -13,10 +12,9 @@ import nutsDeck from "./data/nuts.json";
 export default {
   name: "App",
   components: {
-    AppFooter,
-    AppHero,
+    AppHeader,
     GameBoard,
-    NewGameButton,
+    NewGameButton
   },
   setup() {
     if (localStorage.getItem("localDeck") === null) {
@@ -30,6 +28,7 @@ export default {
     }
 
 
+    let subtitle = cardDeck.value["title"];
 
 
 
@@ -117,14 +116,15 @@ export default {
       startNewGame,
       newPlayer,
       starttime,
-      tries
+      tries,
+      subtitle
     };
   },
 };
 </script>
 
 <template>
-  <AppHero />
+  <AppHeader :subtitle="subtitle" />
   <NewGameButton :newPlayer="newPlayer" @start-new-game="startNewGame" />
   <GameBoard :cardList="cardList" :status="status" @flip-card="flipCard" :starttime="starttime" :tries="tries" :newPlayer="newPlayer" />
   <AppFooter />

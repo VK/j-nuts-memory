@@ -13,7 +13,6 @@ export default {
 
 <template>
   <h1 class="mainheader">J🌰 Memory</h1>
-  <hr class="headerdivider"/>
   <h3 class="subheader">{{ subtitle }}</h3>
 </template>
 
@@ -21,11 +20,10 @@ export default {
 
 .mainheader {
   padding-top: 1rem;
-  margin-bottom: 0;
+  margin-bottom: 0.3rem;
+  border-bottom:solid rgb(69, 151, 69) 3px;
 }
-.headerdivider {
-  border:solid rgb(69, 151, 69) 1px;
-}
+
 .subheader {
   margin-top: 0;
 }

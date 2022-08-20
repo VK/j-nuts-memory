@@ -16,15 +16,19 @@ export default {
     NewGameButton,
   },
   setup() {
-    if (localStorage.getItem("localDeck") === null) {
+    if (localStorage.getItem("levels") === null) {
       cardDeck.value = nutsDeck;
     } else {
       try {
-        cardDeck.value = JSON.parse(localStorage.getItem("localDeck"));
+        let levels = JSON.parse(localStorage.getItem("levels"));
+        let active_level = levels.filter(el => el.active)[0];
+        console.log(active_level);
+        cardDeck.value = JSON.parse(localStorage.getItem(active_level.id));
       } catch {
         cardDeck.value = nutsDeck;
       }
     }
+    console.log(cardDeck.value);
 
     let subtitle = cardDeck.value["title"];
 

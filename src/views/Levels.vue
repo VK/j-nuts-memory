@@ -62,13 +62,16 @@ export default {
       v-for="(level, idx) in levels"
       v-bind:key="level.id"
     >
-      <div class="contentbox">
-        <a @click="ac(level)">{{ idx + 1 }}. {{ level.title }}</a>
+      <div class="contentbox" @click="ac(level)">
+        {{ idx + 1 }}. {{ level.title }}
       </div>
       <div class="rightbox">
-        <a @click="del(level)">
-          <img src="images/delete.svg" alt="Delete" width="32" />
-        </a>
+        <img
+          @click="del(level)"
+          src="images/delete.svg"
+          alt="Delete"
+          width="40"
+        />
       </div>
     </div>
   </div>
@@ -76,13 +79,14 @@ export default {
 
 <style>
 .level {
-  width: 400px;
+  width: 350px;
   background: rgb(22, 49, 22);
   display: flex;
   flex-flow: row;
+   cursor: pointer;
 }
 .level-odd {
-  background:  rgb(41, 90, 41);
+  background: rgb(41, 90, 41);
 }
 .level-active {
   background: #28a745;
@@ -90,11 +94,11 @@ export default {
 .rightbox {
   float: right;
   height: 100%;
-  margin-top: 7px;
+  margin-top: 14px;
   margin-right: 10px;
 }
 .contentbox {
-  padding: 16px 16px;
+  padding: 25px 25px;
   flex: 1 auto;
   float: left;
   text-align: left;

@@ -16,12 +16,13 @@ export default {
     NewGameButton,
   },
   setup() {
+    let active_level = {id: null}
     if (localStorage.getItem("levels") === null) {
       cardDeck.value = nutsDeck;
     } else {
       try {
         let levels = JSON.parse(localStorage.getItem("levels"));
-        let active_level = levels.filter(el => el.active)[0];
+        active_level = levels.filter(el => el.active)[0];
         console.log(active_level);
         cardDeck.value = JSON.parse(localStorage.getItem(active_level.id));
       } catch {
@@ -44,7 +45,8 @@ export default {
       status,
       starttime,
       tries,
-    } = createGame(cardList);
+      updateHighscore
+    } = createGame(cardList, active_level);
     const userSelection = ref([]);
     const userCanFlipCard = ref(true);
 
@@ -80,6 +82,7 @@ export default {
     watch(matchesFound, (currentValue) => {
       if (currentValue === 8 && !newPlayer.value) {
         launchConfetti();
+        updateHighscore();
       }
     });
 
@@ -125,9 +128,11 @@ export default {
       newPlayer,
       starttime,
       tries,
-      subtitle,
+      subtitle
     };
   },
+
+
 };
 </script>
 

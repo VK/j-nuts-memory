@@ -21,6 +21,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-height: 80vh;
+  overflow-y: auto;
 
 }
 
@@ -30,6 +32,7 @@
   text-align: center;
   padding: 16px 16px;
   text-decoration: none;
+  width:80px;
 }
 
 .router-link-active {

@@ -3,13 +3,13 @@ import { computed, ref } from 'vue'
 import { createDeck } from './createDeck'
 
 
-export default function createGame(deck) {
+export default function createGame(deck, level) {
   const newPlayer = ref(true)
   let tries = ref(0);
   let starttime = ref(Date.now());
 
   const startGame = () => {
-    
+
     if (newPlayer.value) {
       restartGame()
       tries.value = 0;
@@ -48,6 +48,33 @@ export default function createGame(deck) {
     return matchedCards / 2
   })
 
+  const updateHighscore = () => {
+    let highscore = []
+    try {
+      highscore = JSON.parse(localStorage.getItem("highscore"));
+      if (highscore === null) {
+        highscore = []
+      }
+    } catch {
+      console.log("First highscore")
+    }
+
+    let endtime = Date.now();
+
+    highscore.push({
+      level: level.id,
+      tries: tries.value,
+      starttime: starttime.value,
+      endtime: endtime,
+      duration: Math.round((endtime - starttime.value) / 100.0) / 10
+    });
+
+
+
+    localStorage.setItem("highscore", JSON.stringify(highscore))
+
+  }
+
   return {
     matchesFound,
     newPlayer,
@@ -55,6 +82,7 @@ export default function createGame(deck) {
     startGame,
     status,
     starttime,
-    tries
+    tries,
+    updateHighscore
   }
 }

@@ -98,11 +98,11 @@ export default {
   margin-right: 10px;
 }
 .contentbox {
-  padding: 25px 25px;
+  padding: 20px 20px;
   flex: 1 auto;
   float: left;
   text-align: left;
-
+  font-size: 20px;
   font-weight: 700;
 }
 

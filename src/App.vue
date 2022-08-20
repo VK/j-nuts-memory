@@ -118,10 +118,12 @@ html {
   }  
 }
 
+
+
 @media only screen and (max-width: 400px) {
   #bottom-nav a {
-    font-size: 18px;
-    padding: 11px 2px;
+    font-size: 19px;
+    padding: 10px 2px;
     width:90px;
   }
   
@@ -166,7 +168,8 @@ nav a.router-link-exact-active {
   }
 
   #bottom-nav a {
-    padding: 5px 5px;
+    font-size: 17px;
+    padding: 0 0;
   }
 
   .mainheader {
@@ -179,8 +182,6 @@ nav a.router-link-exact-active {
     /* visibility: collapse; */
   }
 
-  .card {
-    width: 70px;
-  }
+
 }
 </style>

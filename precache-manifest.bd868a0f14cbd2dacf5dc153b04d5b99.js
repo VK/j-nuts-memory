@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "38e164574a1629fce27c",
-    "url": "/j-nuts-memory/css/index.5f301cd0.css"
+    "revision": "02902a3cb6eba9b5032e",
+    "url": "/j-nuts-memory/css/index.6a23403d.css"
   },
   {
     "revision": "7b6ddcaf5565990505b475e935ca5c38",
@@ -40,16 +40,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/j-nuts-memory/img/icon.png"
   },
   {
-    "revision": "5f9073dc94593092e13478f7d65d3e45",
+    "revision": "9c64b56fadace5b9f4e377213421a2a7",
     "url": "/j-nuts-memory/index.html"
   },
   {
-    "revision": "d6ba3e296a3a015e144d",
-    "url": "/j-nuts-memory/js/chunk-vendors.af166c7a.js"
+    "revision": "57e3b19198dcfe155613",
+    "url": "/j-nuts-memory/js/chunk-vendors.f3385502.js"
   },
   {
-    "revision": "38e164574a1629fce27c",
-    "url": "/j-nuts-memory/js/index.9f1d5029.js"
+    "revision": "02902a3cb6eba9b5032e",
+    "url": "/j-nuts-memory/js/index.ecab8ff6.js"
   },
   {
     "revision": "85d92658f647eb97ef021caeb07c43b1",

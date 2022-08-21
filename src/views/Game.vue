@@ -137,7 +137,7 @@ export default {
 <template>
   <AppHeader :subtitle="subtitle" />
 
-  <div class="appcenter">
+  <div class="appcenter" style="width:100%">
     <NewGameButton :newPlayer="newPlayer" @start-new-game="startNewGame" />
     <GameBoard
       :cardList="cardList"

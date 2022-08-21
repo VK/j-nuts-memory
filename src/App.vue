@@ -61,7 +61,7 @@ export default {
   <nav id="bottom-nav">
     <router-link to="/">Game</router-link>
     <router-link to="/levels">Levels</router-link>
-    <router-link to="/score">Hightscore</router-link>
+    <router-link to="/score">Highscore</router-link>
   </nav>
   <router-view />
 </template>

@@ -1,0 +1,1 @@
+npx vue-pwa-asset-generator -a .\icon.png -o icons

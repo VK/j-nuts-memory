@@ -36,7 +36,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/j-nuts-memory/images/vue-logo.svg"
   },
   {
-    "revision": "f416df54a6320b89a30a0ad14ac07e9e",
+    "revision": "7d01b0e292f5fde72740c645b3fb41af",
+    "url": "/j-nuts-memory/img/README.md"
+  },
+  {
+    "revision": "eafb761fd99f2c7ccc7fa25cb69653c0",
     "url": "/j-nuts-memory/img/icon.png"
   },
   {

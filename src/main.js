@@ -45,12 +45,11 @@ async function loadDeck(url) {
 }
 
 const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-if (urlParams.get('loadDeck') !== null) {
-
-  let url = urlParams.get('loadDeck');
-
-  loadDeck(url)
+if (queryString !== null) {
+  try{
+  let url = window.atob(queryString.replace("?",""));
+  loadDeck(url);
+  } catch {console.log("no valid param")}
 }
 
 
@@ -64,7 +63,5 @@ if (localStorage.getItem("levels") === null) {
 
 }
 
-
-
-
 createApp(app).use(router).mount('#app')
+

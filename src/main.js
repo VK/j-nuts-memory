@@ -43,24 +43,24 @@ async function loadDeck(url) {
         return;
 
       }
-    } else {
-
-      levels.forEach(element => {
-        element.active = false;
-      });
-
-      let new_entry = { title: newDeck.title, id: new_uuid, active: true };
-      if ("update" in newDeck) {
-        new_entry["update"] = newDeck["update"];
-      }
-      levels.push(
-        new_entry
-      )
-      localStorage.setItem(new_uuid, JSON.stringify(newDeck));
-      localStorage.setItem("levels", JSON.stringify(levels));
-
-      window.location = window.location.pathname;
     }
+
+    levels.forEach(element => {
+      element.active = false;
+    });
+
+    let new_entry = { title: newDeck.title, id: new_uuid, active: true };
+    if ("update" in newDeck) {
+      new_entry["update"] = newDeck["update"];
+    }
+    levels.push(
+      new_entry
+    )
+    localStorage.setItem(new_uuid, JSON.stringify(newDeck));
+    localStorage.setItem("levels", JSON.stringify(levels));
+
+    window.location = window.location.pathname;
+
 
   } catch {
     console.log("nothing loaded");

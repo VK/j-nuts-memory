@@ -63,7 +63,7 @@ export default {
     <router-link to="/levels" v-if="!updateExists">Levels</router-link>
     <router-link to="/score"  v-if="!updateExists">Highscore</router-link>
 
-    <router-link @click="refreshApp" v-if="updateExists">Update App</router-link>
+    <a @click="refreshApp" v-if="updateExists">Update App</a>
   </nav>
   <router-view />
 </template>

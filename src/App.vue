@@ -5,7 +5,7 @@ export default {
     return {
       refreshing: false,
       worker: null,
-      updateExists: false
+      updateExists: false,
     };
   },
   created() {
@@ -33,7 +33,7 @@ export default {
       if (e.detail) {
         this.worker = e.detail;
         this.updateExists = true;
-        console.log("Showing refresh button.");
+
         console.log(this.worker);
       } else {
         console.warn("No worker data found!");
@@ -51,17 +51,19 @@ export default {
       }
       this.worker.postMessage({ type: "SKIP_WAITING" });
       console.log("skipWaiting finished");
-    }
-  }
+    },
+  },
 };
 </script>
 
 
 <template>
   <nav id="bottom-nav">
-    <router-link to="/">Game</router-link>
-    <router-link to="/levels">Levels</router-link>
-    <router-link to="/score">Highscore</router-link>
+    <router-link to="/" v-if="!updateExists">Game</router-link>
+    <router-link to="/levels" v-if="!updateExists">Levels</router-link>
+    <router-link to="/score"  v-if="!updateExists">Highscore</router-link>
+
+    <router-link @click="refreshApp" v-if="updateExists">Update App</router-link>
   </nav>
   <router-view />
 </template>
@@ -111,24 +113,19 @@ html {
     font-size: 15px;
     padding: 10px 2px;
     width: 80px;
-    
   }
   #bottom-nav {
     height: 24px;
-  }  
+  }
 }
-
-
 
 @media only screen and (max-width: 400px) {
   #bottom-nav a {
     font-size: 19px;
     padding: 10px 2px;
-    width:90px;
+    width: 90px;
   }
-  
 }
-
 
 .router-link-active {
   background: #28a745;
@@ -180,7 +177,5 @@ nav a.router-link-exact-active {
     position: relative;
     top: -60px;
   }
-
-
 }
 </style>

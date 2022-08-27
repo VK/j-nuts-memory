@@ -10,6 +10,14 @@ export default {
     let levels = JSON.parse(localStorage.getItem("levels"));
     let highscore = JSON.parse(localStorage.getItem("highscore"));
 
+    if (levels === null) {
+      levels = [];
+    }    
+
+    if (highscore === null) {
+      highscore = [];
+    }
+
     return {
       levels,
       highscore,

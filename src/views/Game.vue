@@ -23,13 +23,13 @@ export default {
       try {
         let levels = JSON.parse(localStorage.getItem("levels"));
         active_level = levels.filter((el) => el.active)[0];
-        console.log(active_level);
+        
         cardDeck.value = JSON.parse(localStorage.getItem(active_level.id));
       } catch {
         cardDeck.value = nutsDeck;
       }
     }
-    console.log(cardDeck.value);
+    
 
     let subtitle = cardDeck.value["title"];
 

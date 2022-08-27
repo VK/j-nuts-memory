@@ -1,5 +1,6 @@
 <script>
 import AppHeader from "./../components/AppHeader";
+import {loadDeck} from "../main.js";
 
 export default {
   name: "Levels",
@@ -41,14 +42,17 @@ export default {
       localStorage.setItem("levels", JSON.stringify(levels));
       localStorage.removeItem(level.id);
 
-      console.log(levels);
-      console.log(levels.length);
+
       if (levels.length === 0) {
         localStorage.removeItem("levels");
       }
 
       window.location = window.location.pathname.replace("levels", "");
     },
+
+    reload(url) {
+      loadDeck(url);
+    }
   },
 };
 </script>
@@ -66,6 +70,8 @@ export default {
         {{ idx + 1 }}. {{ level.title }}
       </div>
       <div class="rightbox">
+        <img src="images/restart.svg" alt="Reload" @click="reload(level.update)"
+          width="42" v-if="'update' in level"/>
         <img
           @click="del(level)"
           src="images/delete.svg"

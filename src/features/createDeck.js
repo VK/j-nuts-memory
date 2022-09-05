@@ -1,6 +1,9 @@
 import { ref } from 'vue'
+import safeEval from 'safe-eval';
 
-var cardList = ref([])
+export var cardbg = ref(null);
+export var cardList = ref([])
+export var game = ref({"name": "all", "value": "name", "filter": true})
 
 
 /**
@@ -15,20 +18,52 @@ function shuffle(a) {
   return a;
 }
 
+const getvalue = (item) => {
+  return safeEval(game.value.value, item);
+}
+
+// const getvalue = (item) => {
+//   return function(str) {
+//     return eval(str);
+//   }.call(game.value.value, item);
+
+// }
+
 
 const initDeck = () => {
 
-  let indices = Array.from(Array(cardDeck.value.data.length).keys());
+  //extract the background
+  if ("cardbg" in cardDeck.value) {
+    cardbg.value = cardDeck.value.cardbg;
+  } else {
+    cardbg.value = null;
+  }
+
+  //apply the card filter
+  let cards = cardDeck.value.data;
+  
+  if (game.value === undefined) {
+    game.value = {"name": "all", "value": "name", "filter": true};
+  }
+
+  if (game && game.value && "filter" in game.value && game.value.filter) {
+    cards = cards.filter(el => safeEval(game.value.filter, el));
+  }
+
+  // get indices for a shuffle
+  let indices = Array.from(Array(cards.length).keys());
   indices = shuffle(indices);
 
   if (cardList.value.length == 0) {
 
     indices.slice(0, 8).forEach((idx, pos) => {
-      let item = cardDeck.value.data[idx];
+      const item = cards[idx];
+
+      const v = getvalue(item);
 
       cardList.value.push({
         idx: pos,
-        value: item.name,
+        value: v,
         img: item.img,
         variant: 1,
         visible: false,
@@ -38,7 +73,7 @@ const initDeck = () => {
 
       cardList.value.push({
         idx: pos,
-        value: item.name,
+        value: v,
         img: item.img,
         variant: 2,
         visible: true,
@@ -49,12 +84,14 @@ const initDeck = () => {
   } else {
 
     indices.slice(0, 8).forEach((idx, pos) => {
-      let item = cardDeck.value.data[idx];
+      let item = cards[idx];
       let cardA = cardList.value[2*pos];
       let cardB = cardList.value[2*pos+1];
 
-      cardA.value = item.name;
-      cardB.value = item.name;
+      let v = getvalue(item);
+
+      cardA.value = v;
+      cardB.value = v;
 
       cardA.img = item.img;
       cardB.img = item.img;
@@ -95,18 +132,14 @@ export function createDeck() {
     initDeck()
     updateCardPosition()
   } else {
-
-
     initDeck()
     updateCardPosition()
-
-
   }
 
 
-
   return {
-    cardList
+    cardList,
+    cardbg
   }
 }
 

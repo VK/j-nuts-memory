@@ -1,12 +1,14 @@
 import _ from 'lodash'
 import { computed, ref } from 'vue'
-import { createDeck } from './createDeck'
+import { cardList, createDeck } from './createDeck'
+
 
 
 export default function createGame(deck, level) {
   const newPlayer = ref(true)
   let tries = ref(0);
   let starttime = ref(Date.now());
+
 
   const startGame = () => {
 
@@ -35,7 +37,7 @@ export default function createGame(deck, level) {
   }
 
   const status = computed(() => {
-    if (matchesFound.value === 8) {
+    if (matchesFound.value === cardList.value.length / 2) {
       return 'You win!'
     } else {
       return `Matches: ${matchesFound.value}`
@@ -61,13 +63,15 @@ export default function createGame(deck, level) {
 
     let endtime = Date.now();
 
-    highscore.push({
-      level: level.id,
-      tries: tries.value,
-      starttime: starttime.value,
-      endtime: endtime,
-      duration: Math.round((endtime - starttime.value) / 100.0) / 10
-    });
+    if (!("gidx" in level) || level.gidx === 0) {
+      highscore.push({
+        level: level.id,
+        tries: tries.value,
+        starttime: starttime.value,
+        endtime: endtime,
+        duration: Math.round((endtime - starttime.value) / 100.0) / 10
+      });
+    }
 
 
 

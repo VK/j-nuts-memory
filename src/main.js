@@ -71,7 +71,7 @@ const queryString = window.location.search;
 if (queryString !== null) {
   try {
     let url = window.atob(queryString.replace("?", ""));
-    console.log(url);
+
     loadDeck(url);
   } catch { console.log("no valid param") }
 }

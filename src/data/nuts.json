@@ -1,5 +1,6 @@
 {
   "title": "Nuts",
+  "games": [{"name": "all", "value": "name", "filter": true}],
   "data": [
     {
       "name": "almonds",

@@ -1,10 +1,12 @@
 <script>
 import Card from "./Card";
 
+
 export default {
   components: {
     Card,
   },
+  emits: ["flipCard", "flip-card"],
   data() {
     return {
       countDown: 0,
@@ -31,6 +33,9 @@ export default {
       type: Boolean,
       required: true,
     },
+    cardbg: {
+      required: false,
+    },
   },
   created() {
     this.countDownTimer();
@@ -48,7 +53,8 @@ export default {
   },
   setup(props, ctx) {
     const selectCard = (payload) => {
-      ctx.emit("flip-card", payload);
+      if ("faceValue" in payload)
+        ctx.emit("flip-card", payload);
     };
 
     return {
@@ -60,23 +66,22 @@ export default {
 
 <template>
   <transition-group tag="section" class="game-board" name="shuffle-card">
-    <Card
-      v-for="card in cardList"
-      :key="`${card.idx}-${card.variant}`"
-      :matched="card.matched"
-      :value="card"
-      :visible="card.visible"
-      :position="card.position"
-      @select-card="selectCard"
-    />
-  </transition-group>
-  <h2 class="status" v-if="newPlayer">Explore the tiles</h2>
-  <h2 class="status" v-else>
-    {{ status }} - Tries: {{ tries }} - Time:
+    <Card v-for="card in cardList" :key="`${card.idx}-${card.variant}`" 
+    :id="`${card.idx}-${card.variant}`" 
+    :matched="card.matched" :value="card"
+      :visible="card.visible" :position="card.position"
+       @select-card="selectCard" :cardbg="cardbg" />
+      </transition-group>
+
+  <h3 class="status" v-if="newPlayer">Flip tiles and learn the the names.<br />
+    Start the game to shuffle them.</h3>
+  <h3 class="status" v-else>
+    {{ status }}<br /> Tries: {{ tries }} - Time:
     <span style="display: inline-block; width: 50px; text-align: right">{{
-      countDown
+        countDown
     }}</span>
-  </h2>
+  </h3>
 </template>
 
-<style></style>
+<style>
+</style>

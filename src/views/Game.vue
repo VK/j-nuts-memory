@@ -1,6 +1,6 @@
 <script>
 import { ref, watch } from "vue";
-import { cardDeck, createDeck } from "./../features/createDeck";
+import { cardDeck, createDeck, game } from "./../features/createDeck";
 import createGame from "./../features/createGame";
 import { launchConfetti } from "./../utilities/confetti";
 import AppHeader from "./../components/AppHeader";
@@ -17,25 +17,42 @@ export default {
   },
   setup() {
     let active_level = { id: null };
+
     if (localStorage.getItem("levels") === null) {
       cardDeck.value = nutsDeck;
     } else {
       try {
         let levels = JSON.parse(localStorage.getItem("levels"));
-        active_level = levels.filter((el) => el.active)[0];
-        
+
+        let all_active = levels.filter((el) => el.active);
+
+        if (all_active.length  > 0) {
+          active_level = all_active[0];
+        } else {
+
+          active_level = levels[0]
+        }
+
+
+        if(active_level !== active_level) {
+          throw "No proper game selection";
+        }
+        game.value = active_level.game;
+
+
         cardDeck.value = JSON.parse(localStorage.getItem(active_level.id));
       } catch {
         cardDeck.value = nutsDeck;
+        game.value = {"name": "all", "value": "name", "filter": true};
       }
     }
-    
 
     let subtitle = cardDeck.value["title"];
 
     // localStorage.setItem("localDeck", JSON.stringify(nutsDeck));
 
-    const { cardList } = createDeck();
+    const { cardList, cardbg } = createDeck();
+
 
     const {
       newPlayer,
@@ -51,6 +68,7 @@ export default {
     const userCanFlipCard = ref(true);
 
     const startNewGame = () => {
+      userSelection.value = [];
       if (newPlayer) {
         startGame();
       } else {
@@ -62,17 +80,17 @@ export default {
       if (userCanFlipCard.value) {
         cardList.value[payload.position].visible = true;
 
-        if (userSelection.value[0]) {
+        if (userSelection.value.length > 0) {
           if (
             userSelection.value[0].position === payload.position &&
             userSelection.value[0].faceValue === payload.faceValue
           ) {
             return;
           } else {
-            userSelection.value[1] = payload;
+            userSelection.value.push(payload);
           }
         } else {
-          userSelection.value[0] = payload;
+          userSelection.value.push(payload);
         }
       } else {
         return;
@@ -80,7 +98,7 @@ export default {
     };
 
     watch(matchesFound, (currentValue) => {
-      if (currentValue === 8 && !newPlayer.value) {
+      if (currentValue === cardList.value.length /2 && !newPlayer.value) {
         launchConfetti();
         updateHighscore();
       }
@@ -92,28 +110,31 @@ export default {
         if (newPlayer.value) {
           // cardList.value[cardOne.position].matched = true;
           userCanFlipCard.value = true;
-          userSelection.value.length = 0;
-        } else if (currentValue.length === 2) {
+          userSelection.value = [];
+        } else if (currentValue.length >= 2) {
           const cardOne = currentValue[0];
           const cardTwo = currentValue[1];
           // Disable ability to flip cards
           userCanFlipCard.value = false;
 
-          if (cardOne.faceValue === cardTwo.faceValue) {
+          if (cardOne.faceValue === cardTwo.faceValue && cardOne.variant !== cardTwo.variant) {
             cardList.value[cardOne.position].matched = true;
             cardList.value[cardTwo.position].matched = true;
             userCanFlipCard.value = true;
           } else {
             setTimeout(() => {
-              cardList.value[cardOne.position].visible = false;
-              cardList.value[cardTwo.position].visible = false;
+              currentValue.forEach((el) => {
+                cardList.value[el.position].visible = false;
+              });
+              userSelection.value = [];
               // Allow user to flip a new card
               userCanFlipCard.value = true;
             }, 1000);
           }
 
-          userSelection.value.length = 0;
+          userSelection.value = [];
           tries.value = tries.value + 1;
+          console.log(cardList.value)
         }
       },
       { deep: true }
@@ -129,6 +150,7 @@ export default {
       starttime,
       tries,
       subtitle,
+      cardbg
     };
   },
 };
@@ -137,7 +159,7 @@ export default {
 <template>
   <AppHeader :subtitle="subtitle" />
 
-  <div class="appcenter" style="width:100%">
+  <div class="appcenter" style="width: 100%">
     <NewGameButton :newPlayer="newPlayer" @start-new-game="startNewGame" />
     <GameBoard
       :cardList="cardList"
@@ -146,8 +168,8 @@ export default {
       :starttime="starttime"
       :tries="tries"
       :newPlayer="newPlayer"
+      :cardbg="cardbg"
     />
-    <AppFooter />
   </div>
 </template>
 
@@ -178,6 +200,8 @@ a:hover {
   grid-column-gap: 8px;
   grid-row-gap: 8px;
   justify-content: center;
+  overflow: hidden;
+  padding-bottom: 8px;
 }
 
 @media screen and (min-width: 390px) {
@@ -200,7 +224,7 @@ a:hover {
   .status {
     font-size: 22px;
   }
-    .card {
+  .card {
     font-size: 22px;
   }
 }

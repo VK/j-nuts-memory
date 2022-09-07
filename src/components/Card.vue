@@ -26,18 +26,18 @@ export default {
 
   watch: {
     value: function (newVal) { 
-      console.log("old", this.base_event_value);
+      // console.log("old", this.base_event_value);
       this.base_event_value.faceValue = newVal.value;
       this.base_event_value.variant = newVal.variant;
 
-      console.log("new", this.base_event_value)
+      // console.log("new", this.base_event_value)
       // console.log('Prop changed: ', newVal, ' | was: ', oldVal)
     },
     position: function (newVal) { 
-      console.log("old", this.base_event_value);
+      // console.log("old", this.base_event_value);
       this.base_event_value.position = newVal;
 
-      console.log("new", this.base_event_value)
+      // console.log("new", this.base_event_value)
       // console.log('Prop changed: ', newVal, ' | was: ', oldVal)
     }
   },
@@ -82,7 +82,7 @@ export default {
         event_value = {};
       }
 
-      console.log("emit", "select-card", props.value.value, event_value, props)
+      //console.log("emit", "select-card", props.value.value, event_value, props)
 
       context.emit("select-card", event_value);
     };

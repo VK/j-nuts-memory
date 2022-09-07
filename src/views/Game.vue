@@ -107,11 +107,7 @@ export default {
     watch(
       userSelection,
       (currentValue) => {
-        if (newPlayer.value) {
-          // cardList.value[cardOne.position].matched = true;
-          userCanFlipCard.value = true;
-          userSelection.value = [];
-        } else if (currentValue.length >= 2) {
+        if (!newPlayer.value && currentValue.length >= 2) {
           const cardOne = currentValue[0];
           const cardTwo = currentValue[1];
           // Disable ability to flip cards
@@ -134,7 +130,7 @@ export default {
 
           userSelection.value = [];
           tries.value = tries.value + 1;
-          console.log(cardList.value)
+          //console.log(cardList.value)
         }
       },
       { deep: true }

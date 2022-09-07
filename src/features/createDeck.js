@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import safeEval from 'safe-eval';
+// import safeEval from 'safe-eval';
 
 export var cardbg = ref(null);
 export var cardList = ref([])
@@ -18,16 +18,24 @@ function shuffle(a) {
   return a;
 }
 
+
+function escape(htmlStr) {
+  return htmlStr.replace(/&/g, "")
+        .replace(/</g, "")
+        .replace(/>/g, "")
+        .replace(/"/g, "")
+        .replace(/'/g, "");        
+
+}
 const getvalue = (item) => {
-  return safeEval(game.value.value, item);
+  const itemvalues = Object.keys(item).filter((k) => k!=='img').map((k) => `let ${k}='${escape(item[k])}'`).join(";");
+  return Function(`${itemvalues}; return (${game.value.value})`)();
+}
+const itemfilter = (filter, item) => {
+  const itemvalues = Object.keys(item).filter((k) => k!=='img').map((k) => `let ${k}='${escape(item[k])}'`).join(";");
+  return Function(`${itemvalues}; return (${filter})`)();
 }
 
-// const getvalue = (item) => {
-//   return function(str) {
-//     return eval(str);
-//   }.call(game.value.value, item);
-
-// }
 
 
 const initDeck = () => {
@@ -47,7 +55,7 @@ const initDeck = () => {
   }
 
   if (game && game.value && "filter" in game.value && game.value.filter) {
-    cards = cards.filter(el => safeEval(game.value.filter, el));
+    cards = cards.filter(el => itemfilter(game.value.filter, el));
   }
 
   // get indices for a shuffle

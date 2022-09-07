@@ -73,8 +73,8 @@ export default {
        @select-card="selectCard" :cardbg="cardbg" />
       </transition-group>
 
-  <h3 class="status" v-if="newPlayer">Flip tiles and learn the the names.<br />
-    Start the game to shuffle them.</h3>
+  <h3 class="status" v-if="newPlayer">1. Flip tiles to learn the names.<br />
+    2. Start the game and solve the shuffled deck.</h3>
   <h3 class="status" v-else>
     {{ status }}<br /> Tries: {{ tries }} - Time:
     <span style="display: inline-block; width: 50px; text-align: right">{{

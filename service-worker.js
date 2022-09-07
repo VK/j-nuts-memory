@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/j-nuts-memory/precache-manifest.1a33e086e0c0b511b01d9649c99ab16f.js"
+  "/j-nuts-memory/precache-manifest.0d4021158e868f6532ba30d2ab0ffa55.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "j-nuts-memory"});

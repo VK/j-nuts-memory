@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "83b63dc2f3bfe988256c",
-    "url": "/j-nuts-memory/css/index.b3993894.css"
+    "revision": "3a0bf31e7f81c6eff128",
+    "url": "/j-nuts-memory/css/index.f3ebf43f.css"
   },
   {
     "revision": "7b6ddcaf5565990505b475e935ca5c38",
@@ -16,8 +16,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/j-nuts-memory/images/delete.svg"
   },
   {
+    "revision": "f168a9a9e86163da03aea5803dfdaef7",
+    "url": "/j-nuts-memory/images/game.svg"
+  },
+  {
     "revision": "1bc6a9eb3f93674e1076382a73841a3f",
     "url": "/j-nuts-memory/images/github-logo.svg"
+  },
+  {
+    "revision": "a3e1152d5db48afc34d71636f362e777",
+    "url": "/j-nuts-memory/images/highscore.svg"
+  },
+  {
+    "revision": "09e977007301c76a63a008fc593e8a70",
+    "url": "/j-nuts-memory/images/levels.svg"
   },
   {
     "revision": "c7e3b9ad2afc19035cc3b2520933cc07",
@@ -44,7 +56,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/j-nuts-memory/img/icon.png"
   },
   {
-    "revision": "2d72911e5cef1e6ab845d12bb23f7778",
+    "revision": "4eb068238c7b1cbaa9ec0ba03b5bb1a1",
     "url": "/j-nuts-memory/index.html"
   },
   {
@@ -52,8 +64,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/j-nuts-memory/js/chunk-vendors.2f625692.js"
   },
   {
-    "revision": "83b63dc2f3bfe988256c",
-    "url": "/j-nuts-memory/js/index.3b9aff53.js"
+    "revision": "3a0bf31e7f81c6eff128",
+    "url": "/j-nuts-memory/js/index.72500d54.js"
   },
   {
     "revision": "85d92658f647eb97ef021caeb07c43b1",

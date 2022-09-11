@@ -59,9 +59,13 @@ export default {
 
 <template>
   <nav id="bottom-nav">
-    <router-link to="/" v-if="!updateExists">Game</router-link>
-    <router-link to="/levels" v-if="!updateExists">Levels</router-link>
-    <router-link to="/score"  v-if="!updateExists">Highscore</router-link>
+    <router-link to="/" v-if="!updateExists">
+      <img class="routericon" src="images/game.svg" /><p class="router-text">Game</p></router-link
+    >
+    <router-link to="/levels" v-if="!updateExists">
+      <img class="routericon" src="images/levels.svg" /><p class="router-text">Levels</p></router-link>
+    <router-link to="/score" v-if="!updateExists">
+      <img class="routericon" src="images/highscore.svg" /><p class="router-text">Highscore</p></router-link>
 
     <a @click="refreshApp" v-if="updateExists">Update App</a>
   </nav>
@@ -98,11 +102,11 @@ html {
 }
 
 #bottom-nav a {
-  font-size: 22px;
+  font-size: 10px;
   display: inline-block;
   color: white;
   text-align: center;
-  padding: 8px 16px;
+  padding: 6px 15px;
   height: 100%;
   text-decoration: none;
   width: 100px;
@@ -110,21 +114,27 @@ html {
 
 @media only screen and (max-width: 375px) {
   #bottom-nav a {
-    font-size: 15px;
     padding: 10px 2px;
     width: 80px;
   }
   #bottom-nav {
     height: 24px;
   }
+
+  .routericon {
+  height: 30% !important;
+}    
 }
 
 @media only screen and (max-width: 400px) {
   #bottom-nav a {
-    font-size: 19px;
     padding: 10px 2px;
     width: 90px;
   }
+
+  .routericon {
+  height: 35% !important;
+}  
 }
 
 .router-link-active {
@@ -177,5 +187,24 @@ nav a.router-link-exact-active {
     position: relative;
     top: -60px;
   }
+
+  .routericon {
+    visibility: hidden;
+    display: none;
+    height: 0;
+  }
+
+
+}
+
+.routericon {
+  height: 45%;
+}
+
+.router-text {
+  margin-top:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

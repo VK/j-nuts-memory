@@ -60,7 +60,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/j-nuts-memory/img/icon.svg"
   },
   {
-    "revision": "4eb068238c7b1cbaa9ec0ba03b5bb1a1",
+    "revision": "375f06511b013ecfe937ac4771ed2b47",
     "url": "/j-nuts-memory/index.html"
   },
   {

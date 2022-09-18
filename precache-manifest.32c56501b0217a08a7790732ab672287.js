@@ -52,8 +52,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/j-nuts-memory/img/README.md"
   },
   {
-    "revision": "eafb761fd99f2c7ccc7fa25cb69653c0",
+    "revision": "8f6dfa897b76ac0ce2bc2139b7faede2",
     "url": "/j-nuts-memory/img/icon.png"
+  },
+  {
+    "revision": "3ddd4f115fa07cc7fe907b08de7ece1b",
+    "url": "/j-nuts-memory/img/icon.svg"
   },
   {
     "revision": "4eb068238c7b1cbaa9ec0ba03b5bb1a1",

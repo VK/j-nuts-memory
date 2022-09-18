@@ -60,12 +60,17 @@ export default {
 <template>
   <nav id="bottom-nav">
     <router-link to="/" v-if="!updateExists">
-      <img class="routericon" src="images/game.svg" /><p class="router-text">Game</p></router-link
+      <img class="routericon" src="images/game.svg" />
+      <p class="router-text">Game</p></router-link
     >
     <router-link to="/levels" v-if="!updateExists">
-      <img class="routericon" src="images/levels.svg" /><p class="router-text">Levels</p></router-link>
+      <img class="routericon" src="images/levels.svg" />
+      <p class="router-text">Levels</p></router-link
+    >
     <router-link to="/score" v-if="!updateExists">
-      <img class="routericon" src="images/highscore.svg" /><p class="router-text">Highscore</p></router-link>
+      <img class="routericon" src="images/highscore.svg" />
+      <p class="router-text">Highscore</p></router-link
+    >
 
     <a @click="refreshApp" v-if="updateExists">Update App</a>
   </nav>
@@ -82,6 +87,11 @@ body {
 
 html {
   background-color: #000;
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
 #app {
@@ -122,8 +132,8 @@ html {
   }
 
   .routericon {
-  height: 30% !important;
-}    
+    height: 30% !important;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -133,8 +143,8 @@ html {
   }
 
   .routericon {
-  height: 35% !important;
-}  
+    height: 35% !important;
+  }
 }
 
 .router-link-active {
@@ -193,8 +203,6 @@ nav a.router-link-exact-active {
     display: none;
     height: 0;
   }
-
-
 }
 
 .routericon {
@@ -202,7 +210,7 @@ nav a.router-link-exact-active {
 }
 
 .router-text {
-  margin-top:0;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
